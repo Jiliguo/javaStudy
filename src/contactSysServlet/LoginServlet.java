@@ -32,6 +32,8 @@ public class LoginServlet extends HttpServlet {
 		String name=request.getParameter("adminName");
 		String password=request.getParameter("adminPwd");
 		admin.setAdminName(name);
+		System.out.println(name);
+		System.out.println(password);
 		admin.setAdminPwd(password);
 		IadminService adser=new AdminServlet();
 		if(adser.login(admin)){

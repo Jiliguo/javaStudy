@@ -3,7 +3,34 @@
     xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+ 	
+ 	 
+ <filter>
+ 	<!--配置初始化参数  -->
+ 	<filter-name>filter1</filter-name>
+ 	<filter-class>filter.Filter1</filter-class>
+ </filter>
  
+ <filter-mapping>
+ 	<filter-name>filter1</filter-name>
+ 	
+ 	<!-- 拦截请求的类型 -->
+ 	<url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+ 
+ <!--  <listener>
+  	<listener-class>listener.MyServletContextListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<listener-class>listener.MyServletRequestListener</listener-class>
+  </listener>
+ 
+  <listener>
+  <listener-class>listener.MySessionListener</listener-class>
+  </listener> -->
+  
   <servlet>
     <servlet-name>ContactServlet</servlet-name>
     <servlet-class>contactSysServlet.ContactServlet</servlet-class>
