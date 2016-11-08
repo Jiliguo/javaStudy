@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>Fileupload</title>
+    <title>文件上传</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,7 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="${pageContext.request.contextPath}/upload.jsp">文件上传</a>
-    <a href="${pageContext.request.contextPath}/fileup?method=downList">文件下载</a>
+    <form action="${pageContext.request.contextPath}/fileup?method=upload" method="post" enctype="multipart/form-data">
+	    <input type="file" name="file">
+	    <input type="submit" value="提交">
+    </form>
   </body>
 </html>

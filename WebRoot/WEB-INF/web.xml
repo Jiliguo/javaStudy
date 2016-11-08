@@ -4,9 +4,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
  	
- 	 
+ <!-- 	 
  <filter>
- 	<!--配置初始化参数  -->
+ 	配置初始化参数 
  	<filter-name>filter1</filter-name>
  	<filter-class>filter.Filter1</filter-class>
  </filter>
@@ -14,22 +14,36 @@
  <filter-mapping>
  	<filter-name>filter1</filter-name>
  	
- 	<!-- 拦截请求的类型 -->
+ 	拦截请求的类型
  	<url-pattern>/*</url-pattern>
  </filter-mapping>
  
  
- <!--  <listener>
+  <listener>
+  	<listener-class>listener.MyHttpSessionAttributeListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<listener-class>listener.MyHttpSessionListener</listener-class>
+  </listener>
+ 
+  <listener>
+  <listener-class>listener.MyServletContextAttributeListener</listener-class>
+  </listener>
+  
+    <listener>
   	<listener-class>listener.MyServletContextListener</listener-class>
   </listener>
   
   <listener>
-  	<listener-class>listener.MyServletRequestListener</listener-class>
+  	<listener-class>listener.MyServletRequestAttributeListener</listener-class>
   </listener>
  
   <listener>
-  <listener-class>listener.MySessionListener</listener-class>
+  <listener-class>listener.MyServletRequestListener</listener-class>
   </listener> -->
+  
+  
   
   <servlet>
     <servlet-name>ContactServlet</servlet-name>
@@ -55,6 +69,11 @@
     <servlet-name>AddServlet</servlet-name>
     <servlet-class>contactSysServlet.AddServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FileUp</servlet-name>
+    <servlet-class>fileupload.FileUp</servlet-class>
+  </servlet>
+
 
 
 
@@ -85,6 +104,10 @@
   <servlet-mapping>
     <servlet-name>AddServlet</servlet-name>
     <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileUp</servlet-name>
+    <url-pattern>/fileup</url-pattern>
   </servlet-mapping>
 
 </web-app>

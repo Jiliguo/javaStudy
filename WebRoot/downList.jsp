@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>Fileupload</title>
+    <title>文件列表</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,7 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="${pageContext.request.contextPath}/upload.jsp">文件上传</a>
-    <a href="${pageContext.request.contextPath}/fileup?method=downList">文件下载</a>
+   	<table border="1" align="center">
+   		<tr>
+   			<th>序号</th>
+   			<th>文件名</th>
+   			<th>操作</th>
+   		</tr>
+   		<c:forEach var="en" items="${requestScope.fileNames}" varStatus="vs">
+   		<tr>
+   			<td>${vs.count}</td>
+   			<td>${en.value}</td>
+   			<td><a href="${pageContext.request.contextPath }/fileup?method=down&fileName=${en.key}">下载</a></td>
+   		</tr>
+   		</c:forEach>
+   	</table>
   </body>
 </html>
